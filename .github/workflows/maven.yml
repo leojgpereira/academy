@@ -25,5 +25,6 @@ jobs:
     - uses: leojgpereira/academy/.github/actions/docker_build@main
       with:
         path_dockerfile: src/main/docker/Dockerfile.jvm
-        image_name: academy
+        image_name: leandropereira057/academy
         tag_name: v1
+    - uses: leojgpereira/academy/.github/actions/docker_push@main
