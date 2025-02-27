@@ -28,3 +28,6 @@ jobs:
         image_name: leandropereira057/academy
         tag_name: v1
     - uses: leojgpereira/academy/.github/actions/docker_push@main
+      with:
+        docker_username: ${{ vars.DOCKERHUB_USERNAME }}
+        docker_token: ${{ secrets.DOCKERHUB_TOKEN  }}
