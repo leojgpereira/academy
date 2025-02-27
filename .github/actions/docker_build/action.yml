@@ -12,10 +12,10 @@ runs:
   steps:
     - name: Define tag name
       run:  |
-        if [ -z "${{ inputs.input-name }}" ]; then
+        if [ -z "${{ inputs.tag_name }}" ]; then
             echo "TAG=$(date +%s)" >> $GITHUB_ENV
         else
-            echo "TAG=${{ inputs.input-name }}" >> $GITHUB_ENV
+            echo "TAG=${{ inputs.tag_name }}" >> $GITHUB_ENV
         fi
       shell: bash
 
