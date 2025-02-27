@@ -23,3 +23,7 @@ jobs:
     - uses: actions/checkout@v4
     - uses: leojgpereira/academy/.github/actions/maven_build@main
     - uses: leojgpereira/academy/.github/actions/docker_build@main
+      with:
+        path_dockerfile: src/main/docker/Dockerfile.jvm
+        image_name: academy
+        tag_name: v1

@@ -1,10 +1,26 @@
 name: Build Project Docker Image
 description: Build application docker image
+inputs:
+  path_dockerfile:
+    description: "Path to the Dockerfile"
+  image_name:
+    description: "Docker image name"
+  tag_name:
+    description: "Docker image tag"
 runs:
   using: composite
   steps:
+    - name: Define tag name
+      run:  |
+        if [ -z "${{ inputs.input-name }}" ]; then
+            echo "TAG=$(date +%s)" >> $GITHUB_ENV
+        else
+            echo "TAG=${{ inputs.input-name }}" >> $GITHUB_ENV
+        fi
+      shell: bash
+
     - name: Build the app docker image
-      run: docker build . --file src/main/docker/Dockerfile.jvm --tag academy:$(date +%s)
+      run: docker build . --file ${{ inputs.path_dockerfile }} --tag ${{ inputs.image_name }}:${{ env.TAG }}
       shell: bash
 
     - name: List docker images
