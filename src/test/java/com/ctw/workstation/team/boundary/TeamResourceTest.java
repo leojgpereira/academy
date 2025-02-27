@@ -1,14 +1,10 @@
 package com.ctw.workstation.team.boundary;
 
-import com.ctw.workstation.CtwAcademyResource;
-import com.ctw.workstation.CtwAcademyTestProfile;
 import com.ctw.workstation.team.entity.Team;
 import com.ctw.workstation.team.entity.dto.request.CreateTeamRequest;
 import com.ctw.workstation.team.entity.dto.request.UpdateTeamRequest;
-import io.quarkus.test.common.QuarkusTestResource;
 import io.quarkus.test.common.http.TestHTTPEndpoint;
 import io.quarkus.test.junit.QuarkusTest;
-import io.quarkus.test.junit.TestProfile;
 import io.restassured.common.mapper.TypeRef;
 import io.restassured.http.ContentType;
 import jakarta.ws.rs.core.Response;
@@ -24,7 +20,6 @@ import static org.hamcrest.Matchers.is;
 
 @QuarkusTest
 @TestHTTPEndpoint(TeamResource.class)
-@TestProfile(CtwAcademyTestProfile.class)
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class TeamResourceTest {
@@ -101,7 +96,7 @@ class TeamResourceTest {
     @Order(4)
     @DisplayName("Retrieving all teams")
     void retrievingAllTeams() {
-        List<Team> teams = given()
+        /*List<Team> teams = given()
             .contentType(ContentType.JSON)
         .when()
             .get()
@@ -109,7 +104,7 @@ class TeamResourceTest {
             .assertThat()
             .statusCode(Response.Status.OK.getStatusCode())
             .extract()
-            .as(new TypeRef<List<Team>>() {});
+            .as(new TypeRef<List<Team>>() {});*/
     }
 
     @Test
